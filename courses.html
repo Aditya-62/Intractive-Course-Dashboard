@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #1e88e5;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #f1c40f;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      color: #1e88e5;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    .course-filters {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      gap: 15px;
+    }
+
+    .course-filters button {
+      padding: 0.8rem 1.5rem;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .course-filters button:hover {
+      background-color: #f39c12;
+      transform: translateY(-3px);
+    }
+
+    .course-filters button.active {
+      background-color: #f39c12;
+    }
+
+    .courses-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* Display 4 cards per row */
+      gap: 2.5rem; /* Increase gap between cards */
+      padding: 0 2rem;
+    }
+
+    /* Responsive for smaller screens */
+    @media (max-width: 1200px) {
+      .courses-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .courses-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+      }
+    }
+
+    @media (max-width: 576px) {
+      .courses-container {
+        grid-template-columns: 1fr; /* 1 card per row */
+      }
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 3rem; /* Increase padding to make the cards bigger */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .course-card h3 {
+      font-size: 2rem; /* Increase font size for course title */
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .course-card p {
+      font-size: 1.3rem; /* Increase font size for description */
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .course-details {
+      font-size: 1rem;
+      color: #f0f0f0;
+      margin-bottom: 1rem;
+    }
+
+    .course-card a {
+      display: inline-block;
+      padding: 1rem 2rem; /* Increase button padding */
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .course-card a:hover {
+      background-color: #fff;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e88e5;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <h1>Courses</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Courses Section -->
+  <section class="courses-section">
+    <h2>Our Courses</h2>
+    <div id="course-container" class="courses-container"></div>
+  </section>
+
+  <script>
+    const courses = [
+      { title: 'HTML & CSS for Beginners', description: 'Learn the basics of HTML and CSS to build static websites.', duration: '3 weeks', level: 'Beginner', link: 'https://www.codecademy.com/catalog/language/html-css' },
+      { title: 'JavaScript Basics', description: 'Get started with JavaScript and learn programming fundamentals.', duration: '4 weeks', level: 'Intermediate', link: 'https://www.w3schools.com/js/' },
+      { title: 'React.js Essentials', description: 'Master React.js to build dynamic user interfaces.', duration: '5 weeks', level: 'Advanced', link: 'https://www.w3schools.com/REACT/DEFAULT.ASP' },
+      { title: 'Python for Data Science', description: 'Understand Python and its applications in data science.', duration: '6 weeks', level: 'Beginner', link: 'https://www.w3schools.com/datascience/default.asp' },
+      { title: 'Machine Learning Fundamentals', description: 'Explore the basics of machine learning algorithms.', duration: '8 weeks', level: 'Intermediate', link: 'https://www.geeksforgeeks.org/machine-learning/' },
+      { title: 'UI/UX Design Principles', description: 'Learn design principles for creating user-friendly interfaces.', duration: '5 weeks', level: 'Beginner', link: 'https://www.geeksforgeeks.org/machine-learning/' },
+      { title: 'Backend Development with Node.js', description: 'Build scalable backend systems using Node.js.', duration: '6 weeks', level: 'Intermediate', link: 'https://www.w3schools.com/nodejs/' },
+      { title: 'SQL for Beginners', description: 'Learn SQL to manage and query databases efficiently.', duration: '4 weeks', level: 'Beginner', link: 'https://www.w3schools.com/sql/default.asp' },
+      { title: 'Cloud Computing with AWS', description: 'Get introduced to cloud computing and AWS services.', duration: '6 weeks', level: 'Intermediate', link: 'https://www.w3schools.com/aws/' },
+      { title: 'Digital Marketing Basics', description: 'Understand the fundamentals of digital marketing strategies.', duration: '3 weeks', level: 'Beginner', link: 'https://www.simplilearn.com/tutorials/digital-marketing-tutorial' },
+      { title: 'Cybersecurity Essentials', description: 'Learn the principles of securing computer systems and data.', duration: '6 weeks', level: 'Intermediate', link: 'https://www.w3schools.com/cybersecurity/' },
+      { title: 'Data Structures and Algorithms', description: 'Study the key data structures and algorithms for problem-solving.', duration: '8 weeks', level: 'Advanced', link: 'https://www.w3schools.com/dsa/index.php' },
+      { title: 'Agile Project Management', description: 'Master agile methodologies for efficient project management.', duration: '3 weeks', level: 'Intermediate', link: 'https://www.javatpoint.com/agile-project-management' },
+      { title: 'Artificial Intelligence for Beginners', description: 'Understand the fundamentals of AI and its applications.', duration: '6 weeks', level: 'Beginner', link: 'https://www.w3schools.com/ai/default.asp' },
+      { title: 'Mobile App Development with Flutter', description: 'Build cross-platform mobile apps using Flutter.', duration: '5 weeks', level: 'Intermediate', link: 'https://www.geeksforgeeks.org/flutter-tutorial/' },
+      { title: 'Advanced CSS Techniques', description: 'Take your CSS skills to the next level with advanced techniques.', duration: '4 weeks', level: 'Advanced', link: 'https://www.w3schools.com/css/css_advanced.asp' }
+    ];
+
+    const colors = ['#f39c12', '#1abc9c', '#3498db', '#e74c3c', '#9b59b6', '#e67e22', '#2ecc71', '#d35400', '#8e44ad', '#16a085', '#2c3e50', '#2980b9'];
+
+    const courseContainer = document.getElementById('course-container');
+
+    function loadCourses() {
+      courses.forEach((course, index) => {
+        const courseCard = document.createElement('div');
+        courseCard.classList.add('course-card');
+        courseCard.style.backgroundColor = colors[index % colors.length]; // Assign different background colors
+        courseCard.innerHTML = `
+          <h3>${course.title}</h3>
+          <p>${course.description}</p>
+          <p class="course-details">Duration: ${course.duration} | Level: ${course.level}</p>
+          <a href="${course.link}" target="_blank">Learn More</a>
+        `;
+        courseContainer.appendChild(courseCard);
+      });
+    }
+
+    window.onload = loadCourses;
+  </script>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Your Platform Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>

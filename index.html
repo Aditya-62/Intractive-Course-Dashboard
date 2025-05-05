@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Course Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      background-color: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1e88e5;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #f1c40f;
+      text-decoration: underline;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    /* Call-to-Action Banner */
+    .cta-banner {
+      background: linear-gradient(45deg, #1e88e5, #f39c12);
+      color: white;
+      text-align: center;
+      padding: 3rem;
+      margin: 2rem 0;
+      border-radius: 10px;
+    }
+
+    .cta-banner h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      font-size: 1.2rem;
+    }
+
+    .cta-banner button {
+      padding: 1rem 2rem;
+      background-color: #166ab6;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.4s ease;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 1.5rem;
+    }
+
+    .cta-banner button:hover {
+      background-color: #1e88e5;
+      transform: translateY(-4px);
+      box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Featured Courses Section */
+    .courses-section {
+      background-color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      margin: 3rem auto;
+      max-width: 1200px;
+    }
+
+    .courses-section h2 {
+      font-size: 2.5rem;
+      color: #1e88e5;
+      margin-bottom: 2rem;
+    }
+
+    .courses-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .course-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .course-card h3 {
+      color: #1e88e5;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .course-card p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #f1f4f9;
+      margin-top: 4rem;
+    }
+
+    .testimonials-section h2 {
+      font-size: 2.5rem;
+      color: #1e88e5;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 1rem auto;
+      max-width: 700px;
+    }
+
+    .testimonial p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    .testimonial h3 {
+      margin-top: 1rem;
+      color: #1e88e5;
+      font-weight: bold;
+    }
+
+    /* Newsletter Subscription */
+    .newsletter-section {
+      background-color: #1e88e5;
+      color: white;
+      text-align: center;
+      padding: 3rem;
+      border-radius: 10px;
+      margin: 4rem auto;
+      max-width: 800px;
+    }
+
+    .newsletter-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .newsletter-section input[type="email"] {
+      padding: 1rem;
+      border-radius: 50px;
+      border: none;
+      width: 70%;
+      margin-right: 1rem;
+    }
+
+    .newsletter-section button {
+      padding: 1rem 2rem;
+      background-color: #f39c12;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.4s ease;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .newsletter-section button:hover {
+      background-color: #e67e22;
+      transform: translateY(-4px);
+      box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1e88e5;
+      color: white;
+      font-size: 1.2rem;
+      position: relative;
+      margin-top: 4rem;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Scroll-to-Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #f39c12;
+    }
+
+    /* Quick View Modal */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .modal-header h3 {
+      font-size: 1.8rem;
+      color: #1e88e5;
+    }
+
+    .close-btn {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .modal-body p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .quick-view-btn {
+      padding: 0.8rem 1.5rem;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .quick-view-btn:hover {
+      background-color: #f39c12;
+      transform: translateY(-3px);
+    }
+    /* Hover effect for testimonials */
+.testimonial:hover {
+  transform: translateY(-10px); /* Move up slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+/* Styling for individual course cards */
+.course-card:nth-child(1) {
+  background-color: #ffebd6; /* Light Peach */
+}
+
+.course-card:nth-child(2) {
+  background-color: #d6f0ff; /* Light Blue */
+}
+
+.course-card:nth-child(3) {
+  background-color: #d6ffda; /* Light Green */
+}
+
+.course-card:nth-child(4) {
+  background-color: #f9d6ff; /* Light Purple */
+}
+
+/* Add hover effect for all course cards */
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>coding tutorials</h1>
+    <nav>
+      <ul>
+        <li><a href="#services">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Call-to-Action Banner -->
+  <section class="cta-banner">
+    <h2>Start Learning Today</h2>
+    <p>Join our platform and unlock unlimited access to top-notch courses from industry experts.</p>
+    <a href="courses.html"><button>Get Started</button></a>
+  </section>
+
+  <!-- Featured Courses Section -->
+  <section class="courses-section">
+    <h2>Featured Courses</h2>
+    <div class="courses-container">
+      <div class="course-card">
+        <h3>Web Development Masterclass</h3>
+        <p>Learn full-stack development from scratch. Build real-world projects with the latest technologies.</p>
+        <button class="quick-view-btn" onclick="openModal('webDev')">Quick View</button>
+      </div>
+      <div class="course-card">
+        <h3>Data Science Bootcamp</h3>
+        <p>Master data analysis, machine learning, and AI. Get hands-on experience with Python and R.</p>
+        <button class="quick-view-btn" onclick="openModal('dataScience')">Quick View</button>
+      </div>
+      <div class="course-card">
+        <h3>UI/UX Design Fundamentals</h3>
+        <p>Understand user behavior and create stunning user interfaces with top tools like Figma and Adobe XD.</p>
+        <button class="quick-view-btn" onclick="openModal('uiUx')">Quick View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick View Modal for Web Development -->
+  <div id="webDevModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Web Development Masterclass</h3>
+        <span class="close-btn" onclick="closeModal('webDev')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>This course covers full-stack web development using technologies like HTML, CSS, JavaScript, and Node.js. You will build multiple real-world projects and become job-ready in no time!</p>
+        <p><strong>Duration:</strong> 12 weeks</p>
+        <p><strong>Key Features:</strong></p>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Node.js, Express, MongoDB</li>
+          <li>Real-world projects</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal for Data Science -->
+  <div id="dataScienceModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Data Science Bootcamp</h3>
+        <span class="close-btn" onclick="closeModal('dataScience')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>This bootcamp offers an in-depth understanding of data science techniques, including data analysis, machine learning, and AI with Python and R. Gain hands-on experience through projects.</p>
+        <p><strong>Duration:</strong> 10 weeks</p>
+        <p><strong>Key Features:</strong></p>
+        <ul>
+          <li>Python, R</li>
+          <li>Machine Learning, AI</li>
+          <li>Capstone Projects</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal for UI/UX Design -->
+  <div id="uiUxModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>UI/UX Design Fundamentals</h3>
+        <span class="close-btn" onclick="closeModal('uiUx')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Learn the fundamentals of UI/UX design and create user-friendly and visually appealing interfaces. This course focuses on Figma, Adobe XD, and understanding user behavior.</p>
+        <p><strong>Duration:</strong> 8 weeks</p>
+        <p><strong>Key Features:</strong></p>
+        <ul>
+          <li>Figma, Adobe XD</li>
+          <li>User Research</li>
+          <li>Prototyping & Wireframing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial">
+      <p>"The courses on this platform helped me level up my skills and land my dream job. The instructors are top-notch and the content is highly practical!"</p>
+      <h3>- Alex Johnson</h3>
+    </div>
+    <div class="testimonial">
+      <p>"I love the flexibility and depth of knowledge provided by the courses. The platform made it easy for me to learn at my own pace."</p>
+      <h3>- Sarah Smith</h3>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription Section -->
+  <section class="newsletter-section">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Get the latest updates on new courses, expert tips, and special offers directly in your inbox.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Your Platform Name. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+  <!-- JavaScript for Scroll-to-Top Button -->
+  <script>
+    window.onscroll = function() {
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollTopBtn.style.display = 'block';
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    };
+
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    function openModal(course) {
+      document.getElementById(course + 'Modal').style.display = 'flex';
+    }
+
+    function closeModal(course) {
+      document.getElementById(course + 'Modal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      background-color: #f4f4f9;
+    }
+
+    header {
+      background-color: #1e88e5;
+      padding: 1rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .contact-section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #1e88e5;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .cards-container {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+      }
+    }
+
+    .card {
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      color: #1e88e5;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .contact-info {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .contact-info a {
+      color: #1e88e5;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #166ab6;
+    }
+
+    /* Unique background colors for each card */
+    .card-1 {
+      background-color: #ffebee;
+    }
+
+    .card-2 {
+      background-color: #e3f2fd;
+    }
+
+    .card-3 {
+      background-color: #e8f5e9;
+    }
+
+    .card-4 {
+      background-color: #fff3e0;
+    }
+
+    /* New Colors for the last two cards */
+    .card-5 {
+      background-color: #fce4ec; /* Light pink background */
+    }
+
+    .card-6 {
+      background-color: #ede7f6; /* Light purple background */
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <h1>About Our Developers</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>Meet Our Developers</h2>
+    <div class="cards-container">
+      <!-- Developer 1 Card -->
+      <div class="card card-1">
+        <img src="Snigdha pic.jpg" alt="Developer Photo">
+        <h3>Snigdha Saha</h3>
+        <p>Frontend Developer with a passion for crafting seamless user experiences. Expert in HTML, CSS, and JavaScript, Snigdha ensures that every project is both visually appealing and user-friendly.</p>
+        <div class="contact-info">
+          <p><a href="https://github.com/snigdha-saha29" target="_blank">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/snigdha-saha-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+
+      <!-- Developer 2 Card -->
+      <div class="card card-2">
+        <img src="Aditya pic.jpg" alt="Developer Photo">
+        <h3>Aditya Pratap Singh</h3>
+        <p>Backend Developer specializing in creating robust server-side applications. Aditya excels in databases, APIs, and ensures that all systems run efficiently and securely.</p>
+        <div class="contact-info">
+          <p><a href="https://github.com/Aditya-62" target="_blank">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/aditya-pratap-singh-149503298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+
+      <!-- Developer 3 Card -->
+      <div class="card card-3">
+        <img src="Mahima pic.jpg" alt="Developer Photo">
+        <h3>S Mahima</h3>
+        <p>Full-Stack Developer skilled in both frontend and backend technologies. Mahima brings versatility to the team, managing databases, writing clean code, and designing responsive user interfaces.</p>
+        <div class="contact-info">
+          <p><a href="https://github.com/Mahima65" target="_blank">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/s-mahima-855442242?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+
+      <!-- Developer 4 Card -->
+      <div class="card card-4">
+        <img src="Rakesh.jpg" alt="Developer Photo">
+        <h3>Rakesh Maharana</h3>
+        <p>Frontend Developer with a passion for crafting seamless user experiences. Expert in HTML, CSS, and JavaScript, Rakesh ensures that every project is both visually appealing and user-friendly.</p>
+        <div class="contact-info">
+          <p><a href="https://github.com/RakeshMaharana090" target="_blank">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/rakesh-maharana-5b0999357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+
+      <!-- Developer 5 Card -->
+      <div class="card card-5">
+        <img src="Nayak.jpg" alt="Developer Photo">
+        <h3>Aditya Nayak</h3>
+        <p>Firebase Designer with a passion for building scalable and efficient back-end systems. Aditya specializes in using Firebase to create seamless, real-time applications that enhance user experience and streamline data management.</p>
+        <div class="contact-info">
+          <p><a href="https://github.com/MR3Adi" target="_blank">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/aditya-nayak-830683224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+        </div>
+</div>
+
+
+      <!-- Developer 6 Card -->
+      <div class="card card-6">
+        <img src="Tiku.jpg" alt="Developer Photo">
+        <h3>Tiku Nayak</h3>
+        <p>UX/UI Designer with an eye for detail. Tiku focuses on creating designs that not only look great but also improve usability, ensuring that users have an intuitive experience.</p>
+        <div class="contact-info">
+          <p><a href="https://github.com/Nayak9583" target="_blank">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/tiku-nayak-502499357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>
